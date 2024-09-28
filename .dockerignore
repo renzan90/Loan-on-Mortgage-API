@@ -1,0 +1,42 @@
+# Exclude Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pypirc
+*.pytest_cache/
+
+# Exclude local development environment files
+.env
+*.env
+*.env.*
+
+# Exclude virtual environments
+mort/
+ENV/
+.venv/
+ENV/
+*.egg-info/
+.eggs/
+
+# Exclude IDE/editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Exclude logs
+*.log
+*.log.*
+
+# Exclude static and media files if served externally
+# staticfiles/
+# media/
+
+# Exclude tests and development tools (optional)
+tests/
+coverage/
+pytest_cache/
+.DS_Store
+test_results/
+junit-*.xml

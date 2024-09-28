@@ -1,0 +1,48 @@
+# Python specific
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+*.pypirc
+*.python-version
+*.pytest_cache/
+
+# Exclude local development environment files
+.env
+*.env
+*.env.*
+
+# Virtual environments
+mort/
+ENV/
+.venv/
+
+# Exclude logs
+*.log
+*.log.*
+
+# Django stuff
+*.mo
+*.db
+db.sqlite3
+*.sqlite3
+
+# Celery beat schedule file
+celerybeat-schedule
+
+# Test-related
+test_results/
+junit-*.xml
+tests/
+coverage/
+pytest_cache/
+.DS_Store
+
+
+# Docker-specific
+docker-compose.override.yml
+
+# Docker volumes
+postgres_data
+data

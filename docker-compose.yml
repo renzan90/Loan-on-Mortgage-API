@@ -1,0 +1,60 @@
+
+services:
+
+  app:
+    build: .
+    image: app:v1
+    container_name: app_
+    command: >
+      sh -c "sleep 10 && python manage.py makemigrations && 
+      python manage.py migrate && 
+      python3 manage.py runserver 0.0.0.0:8000"
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:15
+    container_name: db_
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_ENGINE: ${ENGINE}
+      POSTGRES_DB: ${NAME}
+      POSTGRES_USER: ${USER}
+      POSTGRES_PASSWORD: ${PASSWORD}
+
+
+  redis:
+    image: redis:7.0.5-alpine
+    container_name: redis_
+    ports:
+      - "6379:6379"
+
+  celery:
+    build: .
+    container_name: celery_
+    command: celery -A mortgage worker --loglevel=info
+    restart: always
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+      - redis
+      - app
+
+volumes:
+  db:
+  celery:
+
