@@ -1,13 +1,16 @@
 from rest_framework import serializers
-from loans.models import Loan
+from loans.models import Loans
 
-class LoanSerialzer(serializers.ModelSerializer):
+class LoanSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Loan
+        model = Loans
         fields = '__all__'
 
+
 class EligibilityFormSerializer(serializers.Serializer):
-    mortgagable_property = serializers.CharField(max_length=20)
+    real_estate = serializers.ChoiceField(choices=['Land', 'Apartment', 'Commercial', 'Residence'],  
+        allow_blank=True)
+    other_mortgageables = serializers.MultipleChoiceField(choices=['Automobile', 'Machinery/Equipment',
+        'Furniture'], allow_blank=True)
     property_valuation = serializers.IntegerField()
-    taxable_monthly_income = serializers.IntegerField()
-    
+    taxable_annual_income = serializers.IntegerField()

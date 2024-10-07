@@ -1,7 +1,12 @@
 from django.urls import path
-#from views import *
+from .views import *
+from rest_framework.routers import DefaultRouter
 
-# url_patterns = [
-#     path('', ListRetrieveViewset, name='see-loans'),
-#     path('')
-# ]
+router = DefaultRouter()
+router.register('loans', LoanViewSet, basename='loans')
+
+urlpatterns = [
+
+]
+
+urlpatterns += router.urls
