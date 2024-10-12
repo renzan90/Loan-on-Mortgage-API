@@ -8,9 +8,12 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 from .tasks import calculate_eligibility
 
+eligibility_result = None
 
 class LoanViewSet(ViewSet):
 
+    global eligibility_result
+    
     def list(self, request, *args, **kwargs):
         queryset = Loans.objects.all()
         serialized_data = LoanSerializer(queryset, many=True)

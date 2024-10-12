@@ -3,10 +3,12 @@ asgiref==3.8.1
 async-timeout==4.0.3
 billiard==4.2.0
 celery==5.4.0
+cffi==1.17.1
 click==8.1.7
 click-didyoumean==0.3.1
 click-plugins==1.1.1
 click-repl==0.3.0
+cryptography==43.0.1
 Django==5.0.7
 django-redis==5.4.0
 django-redis-cache==3.0.1
@@ -15,6 +17,7 @@ djangorestframework-simplejwt==5.3.1
 kombu==5.3.7
 prompt_toolkit==3.0.47
 psycopg2-binary==2.9.9
+pycparser==2.22
 PyJWT==2.9.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1

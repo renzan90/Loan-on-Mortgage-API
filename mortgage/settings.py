@@ -156,3 +156,7 @@ REST_FRAMEWORK = {
     )
 
 }
+
+# Date settings
+
+DATE_INPUT_FORMATS = ['%d-%m-%Y']

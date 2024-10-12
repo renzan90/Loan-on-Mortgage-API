@@ -1,7 +1,7 @@
 from django.db import models
 
 class Borrower(models.Model):
-    borrower_id = models.IntegerField(primary_key=True, unique=True, null=False, blank=False)
+    borrower_id = models.AutoField(primary_key=True, unique=True)
     first_name = models.CharField(max_length=15, null=False, blank=False, default='')
     last_name = models.CharField(max_length=15, null=False, blank=False, default='')
     profession = models.CharField(max_length=15, null=False, blank=False, default='')
